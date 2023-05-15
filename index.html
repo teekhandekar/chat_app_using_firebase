@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>My Web App</title>
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-messaging.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="index.js"></script>
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_AUTH_DOMAIN",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_STORAGE_BUCKET",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const messaging = firebase.messaging();
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('C:\Users\TEJSHWINI\Desktop\python babbar\firebase-messaging-sw.js')
+        .then((registration) => {
+          console.log('Service worker registered successfully.');
+          messaging.getToken({
+            vapidKey: 'BCwqgtigBpK88NqLlqcE9qaadpvWFHjKC5-t0wIq5lx7qnDXfFkz-VXtYK7Of2h_w1qQLIVs_Pm-pIFowJMQ6WU',
+            serviceWorkerRegistration: registration,
+          }).then((currentToken) => {
+            console.log('Token:', currentToken);
+          }).catch((err) => {
+            console.log('An error occurred while retrieving token:', err);
+          });
+        }).catch((err) => {
+          console.log('An error occurred while registering the service worker:', err);
+        });
+      });
+    } else {
+      console.log('Service workers are not supported by your browser.');
+    }
+  </script>
+</head>
+<body>
+  <h1>Welcome to my web app</h1>
+  <div>
+      Enter room name:
+      <input type="text" id="room-name-input">
+      <button id="create-room">Create Room</button>
+  </div>
+    <div id="room-list"></div>
+  <div id="messages">
+    <!-- chat messages will be displayed here -->
+  </div>
+  <form>
+    <input type="text" id="message-input" placeholder="Type a message...">
+    <button type="button" id="send-button">Send</button>
+  </form>
+</body>
+</html>
