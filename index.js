@@ -1,14 +1,14 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   // Firebase configuration values
-  apiKey: "AIzaSyCYcHCdgc-tCeRXHRnZ8uVKENidMaHRL9s",
-  authDomain: "chat-application-611b3.firebaseapp.com",
-  databaseURL: "https://chat-application-611b3-default-rtdb.firebaseio.com",
-  projectId: "chat-application-611b3",
-  storageBucket: "chat-application-611b3.appspot.com",
-  messagingSenderId: "284177842733",
-  appId: "1:284177842733:web:e84335588fc1798f1a2ea4",
-  measurementId: "G-G3Q54RCYP6"
+  apiKey: "",
+  authDomain: "",
+  databaseURL: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: "",
+  measurementId: ""
 };
 
 // Initialize Firebase
@@ -18,7 +18,7 @@ firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 
 // Add the public key generated from the console here
-messaging.getToken({ vapidKey: 'BCwqgtigBpK88NqLlqcE9qaadpvWFHjKC5-t0wIq5lx7qnDXfFkz-VXtYK7Of2h_w1qQLIVs_Pm-pIFowJMQ6WU' }).then((currentToken) => {
+messaging.getToken({ vapidKey: '' }).then((currentToken) => {
   if (currentToken) {
     console.log(currentToken);
     // Send the token to your server and update the UI if necessary
