@@ -16,10 +16,10 @@
     "real",
     "time"
   ],
-  "author": "tejaswini",
-  "license": "ISC",
+  "author": "",
+  "license": "",
   "bugs": {
-    "url": "https://github.com/teekhandekar/chat_app_using_firebase/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/teekhandekar/chat_app_using_firebase#readme"
+  "homepage": ""
 }
