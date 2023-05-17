@@ -11,23 +11,23 @@
   <script>
     // Your web app's Firebase configuration
     var firebaseConfig = {
-      apiKey: "AIzaSyCYcHCdgc-tCeRXHRnZ8uVKENidMaHRL9s",
-      authDomain: "chat-application-611b3.firebaseapp.com",
-      projectId: "chat-application-611b3",
-      storageBucket: "chat-application-611b3.appspot.com",
-      messagingSenderId: "284177842733",
-      appId: "1:284177842733:web:e84335588fc1798f1a2ea4"
+      apiKey: "",
+      authDomain: "",
+      projectId: "",
+      storageBucket: "",
+      messagingSenderId: "",
+      appId: ""
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     const messaging = firebase.messaging();
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function() {
-        navigator.serviceWorker.register('C:\Users\TEJSHWINI\Desktop\python babbar\firebase-messaging-sw.js')
+        navigator.serviceWorker.register('firebase-messaging-sw.js')
         .then((registration) => {
           console.log('Service worker registered successfully.');
           messaging.getToken({
-            vapidKey: 'BCwqgtigBpK88NqLlqcE9qaadpvWFHjKC5-t0wIq5lx7qnDXfFkz-VXtYK7Of2h_w1qQLIVs_Pm-pIFowJMQ6WU',
+            vapidKey: '',
             serviceWorkerRegistration: registration,
           }).then((currentToken) => {
             console.log('Token:', currentToken);
